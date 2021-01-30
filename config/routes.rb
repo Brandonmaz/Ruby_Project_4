@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get '/entries/:id', to: 'entries#show'
   post '/entries', to: 'entries#create'
   delete '/entries/:id', to: 'entries#delete'
+  put '/entries/:id', to: 'entries#update'
+
 end
