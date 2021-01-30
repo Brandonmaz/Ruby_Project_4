@@ -20,4 +20,13 @@ class Entry < ApplicationRecord
         "done" => results.first["done"]    
         }
     end
+
+    # create
+    def self.create(opts)
+        results = DB. exec(
+            <<-SQL
+            INSERT INTO entry (task, description, )
+        )
+
 end
+

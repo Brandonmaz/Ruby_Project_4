@@ -7,4 +7,7 @@ class EntriesController < ApplicationController
         render json: Entry.find(params[:id])
     end
     
+    def create
+        render json: Entry.create(params["entry"])
+    end
 end
