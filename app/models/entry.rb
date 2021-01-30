@@ -6,4 +6,17 @@ class Entry < ApplicationRecord
             puts result
         end
     end
+
+    def self.find(id)
+        results = DB.exec("SELECT * FROM entries WHERE id=#{id};")
+        return {
+            "task" => results.first["task"],
+            "description" => results.first["description"],
+            "date" => results.first["date"],
+            "due_date" => results.first["due_date"],
+            "done" => results.first["done"]
+        }
+    end
+
+
 end
