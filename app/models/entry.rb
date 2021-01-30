@@ -12,21 +12,35 @@ class Entry < ApplicationRecord
     # show
     def self.find(id)
         results = DB.exec("SELECT * FROM entries WHERE id=#{id};")
-        return { 
-        "task" => results.first["task"],
-        "description" => results.first["description"],
-        "date" => results.first["date"],
-        "due_date" => results.first["due_date"],
-        "done" => results.first["done"]    
+        return {
+            "task" => results.first["task"],
+            "description" => results.first["description"],
+            "due_date" => results.first["due_date"],
+            "done" => results.first["done"]
         }
     end
 
-    # create
     def self.create(opts)
-        results = DB. exec(
+        results = DB.exec(
             <<-SQL
-            INSERT INTO entry (task, description, )
+                INSERT INTO entries (task, description, due_date, done)
+                VALUES ('#{opts["task"]}', '#{opts["description"]}', '#{opts["due_date"]}', #{opts["done"]})
+                RETURNING task, description, due_date, done;
+            SQL
         )
+        return {
+            "task" => results.first["task"],
+            "description" => results.first["description"],
+            "due_date" => results.first["due_date"],
+            "done" => results.first["done"]
+        }
+    end
+
+    #delete
+    def self.delete(id)
+        results = DB.exec("DELETE FROM entries WHERE id=#{id};")
+        return {"deleted" => true}
+    end
 
 end
 

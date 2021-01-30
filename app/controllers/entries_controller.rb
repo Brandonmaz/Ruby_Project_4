@@ -10,4 +10,8 @@ class EntriesController < ApplicationController
     def create
         render json: Entry.create(params["entry"])
     end
+
+    def delete
+        render json: Entry.delete(params["id"])
+    end
 end
