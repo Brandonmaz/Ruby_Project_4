@@ -33,4 +33,9 @@ class Entry < ApplicationRecord
         }
     end
 
+    def self.delete(id)
+        results = DB.exec("DELETE FROM entries WHERE id=#{id};")
+        return { "deleted": true }
+    end
+
 end
