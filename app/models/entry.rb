@@ -23,21 +23,21 @@ class Entry < ApplicationRecord
     #     }
     # end
 
-    def self.create(opts)
-        results = DB.exec(
-            <<-SQL
-                INSERT INTO entries (task, description, due_date, done)
-                VALUES ('#{opts["task"]}', '#{opts["description"]}', '#{opts["due_date"]}', #{opts["done"]})
-                RETURNING task, description, due_date, done;
-            SQL
-        )
-        return {
-            "task" => results.first["task"],
-            "description" => results.first["description"],
-            "due_date" => results.first["due_date"],
-            "done" => results.first["done"]
-        }
-    end
+    # def self.create(opts)
+    #     results = DB.exec(
+    #         <<-SQL
+    #             INSERT INTO entries (task, description, due_date, done)
+    #             VALUES ('#{opts["task"]}', '#{opts["description"]}', '#{opts["due_date"]}', #{opts["done"]})
+    #             RETURNING task, description, due_date, done;
+    #         SQL
+    #     )
+    #     return {
+    #         "task" => results.first["task"],
+    #         "description" => results.first["description"],
+    #         "due_date" => results.first["due_date"],
+    #         "done" => results.first["done"]
+    #     }
+    # end
 
     # def self.delete(id)
     #     results = DB.exec("DELETE FROM entries WHERE id=#{id};")
