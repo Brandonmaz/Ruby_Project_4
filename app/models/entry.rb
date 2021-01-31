@@ -6,12 +6,12 @@ class Entry < ApplicationRecord
         DB = PG.connect(host: "localhost", port: 5432, dbname: 'to_do_api_development')
     end
 
-    def self.all
-        results = DB.exec("SELECT * FROM entries;")
-        results.each do |result|
-            puts result
-        end
-    end
+    # def self.all
+    #     results = DB.exec("SELECT * FROM entries;")
+    #     results.each do |result|
+    #         puts result
+    #     end
+    # end
 
     # def self.find(id)
     #     results = DB.exec("SELECT * FROM entries WHERE id=#{id};")
