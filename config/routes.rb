@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post '/entries', to: 'entries#create'
   delete '/entries/:id', to: 'entries#delete'
   put '/entries/:id', to: 'entries#update'
+  get '/', to: 'entries#index'
 end
