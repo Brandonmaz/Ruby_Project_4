@@ -18,7 +18,7 @@ class Entry < ApplicationRecord
         return {
             "task" => results.first["task"],
             "description" => results.first["description"],
-            "due_date" => results.first["due_date"],
+            "due_date" => results.first["due_date"].to_s,
             "done" => results.first["done"]
         }
     end
@@ -34,7 +34,7 @@ class Entry < ApplicationRecord
         return {
             "task" => results.first["task"],
             "description" => results.first["description"],
-            "due_date" => results.first["due_date"],
+            "due_date" => results.first["due_date"].to_s,
             "done" => results.first["done"]
         }
     end
@@ -59,7 +59,7 @@ class Entry < ApplicationRecord
         return {
             "task" => results.first["task"],
             "description" => results.first["description"],
-            "due_date" => results.first["due_date"],
+            "due_date" => results.first["due_date"].to_s,
             "done" => results.first["done"]
         }
     end
