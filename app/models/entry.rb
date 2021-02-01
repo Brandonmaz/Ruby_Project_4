@@ -50,7 +50,7 @@ class Entry < ApplicationRecord
                 UPDATE entries
                 SET task = '#{opts["task"]}',
                 description = '#{opts["description"]}',
-                due_date = '#{opts["due_date"]}',
+                due_date = '#{opts["due_date"].to_s}',
                 done = #{opts["done"]}
                 WHERE id = #{id}
                 RETURNING task, description, due_date, done;
