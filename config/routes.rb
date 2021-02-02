@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   delete '/entries/:id', to: 'entries#delete'
   put '/entries/:id', to: 'entries#update'
   get '/', to: 'entries#index'
+
+  #route for task done
+  put '/entries/done/:id', to: 'entries#update_done'
 end

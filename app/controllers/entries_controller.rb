@@ -19,4 +19,9 @@ class EntriesController < ApplicationController
     def update
         render json: Entry.update(params["id"], params["entry"])
     end
+
+    #controller for task done
+    def update_done
+        render json: Entry.update_done(params["id"])
+    end
 end

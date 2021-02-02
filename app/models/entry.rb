@@ -65,4 +65,20 @@ class Entry < ApplicationRecord
     end
 
 
+    #changes the entry to done
+    def self.update_done(id)
+        results = DB.exec(
+            <<-SQL
+                UPDATE entries
+                SET done = true
+                WHERE id = #{id}
+                RETURNING done;
+            SQL
+        )
+        return {
+            "done" => results.first["done"]
+        }
+    end
+
+
 end
