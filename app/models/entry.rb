@@ -7,7 +7,7 @@ class Entry < ApplicationRecord
     end
 
     def self.all
-        results = DB.exec("SELECT * FROM entries;")
+        results = DB.exec("SELECT * FROM entries ORDER BY id DESC;")
         results.each do |result|
             puts result
         end
