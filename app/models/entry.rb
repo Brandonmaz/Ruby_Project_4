@@ -76,6 +76,9 @@ class Entry < ApplicationRecord
             SQL
         )
         return {
+            "task" => results.first["task"],
+            "description" => results.first["description"],
+            "due_date" => results.first["due_date"].to_s,
             "done" => results.first["done"]
         }
     end
